@@ -17,6 +17,7 @@ header .container, main .container, footer .container{
 header{
 	background: white;
 	overflow: auto;
+	border-bottom: 2px solid lightgray;	
 	
 }
 
