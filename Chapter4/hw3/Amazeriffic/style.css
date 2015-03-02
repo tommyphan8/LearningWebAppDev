@@ -18,7 +18,6 @@ header .container, main .container, footer .container{
 header{
 	background: white;
 	overflow: auto;
-	padding-bottom:;
 	border-bottom: 1px solid darkslategray;
 	
 }
@@ -169,4 +168,4 @@ a{
 a:visited {
 	color:tomato;
 }
-}
+

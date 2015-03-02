@@ -38,7 +38,7 @@ var main = function () {
                 });
             } else if ($element.parent().is(":nth-child(3)")) {
                 // input a new to-do
-                $input = $("<input>"),
+                $input = $("<input>");
                 $button = $("<button>").text("+");
 
                 $button.on("click", function () {
