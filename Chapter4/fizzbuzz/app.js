@@ -1,5 +1,6 @@
 var main = function() {
 	"use strict";
+	var $newP;
 	var addComment = function(num) {
 		var $new_comment;
 
@@ -11,7 +12,7 @@ var main = function() {
 
 	var print = function(num1, num2) {
 		var num;
-
+		$newP = $("<p>");
 		for (num = num1; num <= num2; num++) {
 			if (num%3 === 0 && num%5 ===0) {
 				addComment("FizzBuzz");
@@ -23,12 +24,14 @@ var main = function() {
 				addComment(num);
 			}	
 		}
+		$("body").append($newP);
 	};
 
 	var fizzbuzz_1 = function() {
 		
 
 		print(1, 100);
+
 	};
 
 	var fizzbuzz_2 = function(start_num, end_num) {
@@ -37,6 +40,7 @@ var main = function() {
 
 	var fizzbuzz_3 = function(arr) {
 		var num;
+		$newP = $("<p>");
 		for (num = 0; num <= arr.length; num++) {
 			if (arr[num]%3 === 0 && arr[num]%5 === 0) {
 				addComment("FizzBuzz");
@@ -49,11 +53,12 @@ var main = function() {
 			}
 
 		}
+		$("body").append($newP);
 	};
 
 	var fizzbuzz_4 = function(obj) {
 		var num;
-
+		$newP = $("<p>");
 		for (num = 1; num <= 100; num++) {
 			if (num%3 === 0 && num%5 ===0) {
 				addComment(obj.divisibleByThree + obj.divisibleByFive);
@@ -65,11 +70,13 @@ var main = function() {
 				addComment(num);
 			}	
 		}
+		$("body").append($newP);
 
 	};
 
 	var fizzbuzz_5 = function(arr, obj) {
 		var num;
+		$newP = $("<p>");
 		for (num = 0; num <= arr.length; num++) {
 			if (arr[num]%3 === 0 && arr[num]%5 === 0) {
 				addComment(obj.divisibleByThree + obj.divisibleByFive);
@@ -81,16 +88,17 @@ var main = function() {
 				addComment(arr[num]);
 			}
 		}
+		$("body").append($newP);
 
 	};
 
 	
 
-	fizzbuzz_5([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115],{ divisibleByThree: "foo", divisibleByFive: "bar"});
+	
 	fizzbuzz_1();
 	fizzbuzz_2(200, 300);
 	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
-
+	fizzbuzz_5([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115],{ divisibleByThree: "foo", divisibleByFive: "bar"});
 };
 
 $(document).ready(main);
