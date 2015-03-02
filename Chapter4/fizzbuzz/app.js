@@ -4,7 +4,7 @@ var main = function() {
 	var addComment = function(num) {
 		var $new_comment;
 
-		$new_comment = $("<a>").text(num + " ");
+		$new_comment = $("<span>").text(num + " ");
 		$("body").append($new_comment);
 
 
