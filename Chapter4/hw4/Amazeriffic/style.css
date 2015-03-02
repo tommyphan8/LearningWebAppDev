@@ -1,0 +1,172 @@
+body{
+	background: #f9e933;
+	font-family: sans-serif;
+
+}
+
+header, main, footer {
+	min-width: 855px;
+
+}
+
+
+header .container, main .container, footer .container{
+	max-width: 855px;
+	margin: auto;
+}
+
+header{
+	background: white;
+	overflow: auto;
+	padding-bottom:;
+	border-bottom: 1px solid darkslategray;
+	
+}
+
+header .h1_title{
+	float: left;
+	width: 500px;
+	font-family: 'Ubuntu';
+	font-size: 2.5em;
+	color:tomato;
+	font-style: oblique;
+	margin-top: 15px;
+	margin-bottom: 10px;
+
+	
+}
+
+header nav{
+	float: right;
+	width: 265px;
+	margin-top: 20px;
+}
+
+
+main{
+	background: white;
+	overflow: auto;
+	padding: 40px;
+	
+}
+
+main .h2{
+	font-family: 'Ubuntu';
+	font-style: oblique;
+	font-size: 1.75em;
+	margin-top: 10px;
+	/*padding: 10px;*/
+}
+
+
+main p{
+	margin-top: 10px;
+	/*padding:10px;*/
+}
+
+main .question{
+	color: black;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+
+.tabs a span {
+	display: inline-block;
+	border-radius: 5px 5px 0 0;
+	width: 100px;
+	margin-right: 10px;
+	text-align: center;
+	background: #ddd;
+	padding: 5px;
+}
+
+.tabs a span.active {
+	background: #eee;
+
+}
+
+main .content {
+	padding: 30px 10px 30px 10px;
+	border-radius: 0 5px 5px 5px;
+	background: #eee;
+}
+
+main .content li {
+	border-radius: 5px;
+	padding: 3px;
+	background: #eff;
+	margin: 0 0 10px 0;
+
+}
+
+main .content button {
+  font-weight: bold;
+  padding: 0 3px 0 3px;
+  border-radius: 5px;
+  background: #ccc;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 1.3em;
+}
+
+main .content input {
+    font-size: 1.5em;
+}
+
+
+
+
+footer .contact{
+	float: left;
+	width: 500px;
+	
+}
+
+footer .sitemap{
+	float: right;
+	width: 270px;
+	
+}
+
+footer .h5, footer .h6{
+	font-size: 1.2em;
+	font-style: bold;
+	margin-top: 15px;
+	/*padding: 10px;*/
+
+	
+}
+
+footer .container3{
+	color: tomato;
+
+}
+
+footer .contact1{
+	margin-top: 10px;
+	/*padding: 10px;*/
+}
+
+footer .titleRed{
+	color: red;
+	font-style: italic;
+}
+
+footer .footerlist{
+	-webkit-columns: 2;
+	columns: 2;
+	-moz-columns: 2;
+	margin-top: 10px;
+	/*padding: 10px;*/
+}
+
+a{
+	text-decoration: none;
+	color: tomato;
+}
+
+a:visited {
+	color:tomato;
+}
+}
