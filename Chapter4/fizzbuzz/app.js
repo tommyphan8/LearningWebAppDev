@@ -3,7 +3,7 @@ var main = function() {
 	var addComment = function(num) {
 		var $new_comment;
 
-		$new_comment = $("<p>").text(num);
+		$new_comment = $("<a>").text(num + " ");
 		$("body").append($new_comment);
 
 
@@ -87,9 +87,9 @@ var main = function() {
 	
 
 	fizzbuzz_5([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115],{ divisibleByThree: "foo", divisibleByFive: "bar"});
-	//fizzbuzz_1();
-	//fizzbuzz_2(200, 300);
-	//fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
+	fizzbuzz_1();
+	fizzbuzz_2(200, 300);
+	fizzbuzz_3([101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115]);
 
 };
 
