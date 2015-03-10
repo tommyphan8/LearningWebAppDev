@@ -16,10 +16,11 @@ var	result = {
 
 function checkLogic(res, playerChoice) {
 	var possiblePlay = ["rock", "paper" , "scissor", "lizard", "spock"];
-	var aiChoice =  possiblePlay[Math.floor(Math.random() * 5)];
+	//https://stackoverflow.com/questions/4550505/getting-random-value-from-an-array
+	var aiChoice =  possiblePlay[Math.floor(Math.random() * 5)];  
 
 	if (aiChoice === playerChoice) {
-		result.ties = result.tie + 1;
+		result.ties = result.ties + 1;
 		result.outcome = "tie";
 
 	} else if (playerChoice === "rock") {
@@ -114,39 +115,52 @@ function checkLogic(res, playerChoice) {
 
 	}
 
+	writeResults(res, aiChoice);
+}
+
+function writeResults(res, aiChoice) {
+
+	writeBeginHtml(res);
+	res.write("<p> Results! <p>\n");
+	res.write("<p> You chose: " + playerChoice + "</p>\n");
+	res.write("<p> AI chose: " + aiChoice + "</p>\n");
+	res.write("<p> Outcome: " + result.outcome + "</p>\n");
+	res.write("<p> Wins: " + result.wins + "</p>\n");
+	res.write("<p> Losses: " + result.losses + "</p>\n");
+	res.write("<p> Ties: " + result.ties + "</p>\n");
+	writeEndHtml(res);
+
+
+
+}
+function writeBeginHtml(res) {
 	res.write("<!doctype html>\n");
 	res.write("<head>\n");
 	res.write("<title>Assignment 5</title>\n");
 	res.write("</head>\n");
 	res.write("<body>\n");
 	res.write("<main>\n");
-	res.write("<p>" +result.wins + "</p>\n");
-	res.write("<p>" +result.losses + "</p>\n");
-	res.write("<p>" +result.outcome + "</p>\n");
-	// res.write(+ result.wins);
-	// res.write(+ result.losses);
+
+}
+
+function writeEndHtml(res) {
 	res.write("</main>\n");
 	res.write("</body>\n");
 	res.write("</html>\n");
 	res.end();
+
 }
 
+//https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data
 function writeInitHTML(res) {
-	res.write("<!doctype html>\n");
-	res.write("<head>\n");
-	res.write("<title>Assignment 5</title>\n");
-	res.write("</head>\n");
-	res.write("<body>\n");
-	res.write("<main>\n");
+	writeBeginHtml(res);
 	res.write("<p>Choose!</p>\n");
 	res.write("<form method='POST' action='/play/rock'><input type = 'submit' value = 'Rock'></form>\n");
 	res.write("<form method='POST' action='/play/paper'><input type = 'submit' value = 'Paper'></form>\n");
 	res.write("<form method='POST' action='/play/scissor'><input type = 'submit' value = 'Scissor'></form>\n");
 	res.write("<form method='POST' action='/play/lizard'><input type = 'submit' value = 'Lizard'></form>\n");
 	res.write("<form method='POST' action='/play/rock'><input type = 'submit' value = 'Spock'></form>\n");
-	res.write("</main>\n");
-	res.write("</body>\n");
-	res.write("</html>\n");
+	writeEndHtml(res);
 	res.end();
 
 }
