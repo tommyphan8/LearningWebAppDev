@@ -15,6 +15,7 @@ var main = function() {
 				$p.text(movie.original_title);
 				$("body ul").append($p);
 				$p.fadeIn();
+				$(".comment-input input").val("");
 				console.log(movie.original_title);
 
 			});
