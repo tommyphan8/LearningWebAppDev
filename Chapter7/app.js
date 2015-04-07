@@ -21,7 +21,7 @@ http.createServer(app).listen(3000);
 
 client.on('connect', function() {
   console.log('connected');
-})
+});
 
 
 // view engine setup
@@ -46,7 +46,7 @@ app.get('/:id', function (req, res) {
   console.log(shortLink);
   client.get(shortLink, function(err, reply) {
     if(reply === null){
-      res.send("Error: Unable to find site's URL to redirect to.")
+      res.send("Error: Unable to find site's URL to redirect to.");
     } else {
       
       console.log("http://" + reply);
