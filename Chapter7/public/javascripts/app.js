@@ -28,7 +28,7 @@ var main = function (){
 				}
 				console.log(data[0][1]);
 			},type: "post"
-		})}, 3000);
+		});}, 3000);
 
 };
 
