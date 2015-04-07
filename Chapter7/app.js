@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var redis = require("redis");
+var _=require('underscore');
 
 //client to connect to Redis
 var client = redis.createClient();
@@ -50,13 +51,38 @@ app.get('/:id', function (req, res) {
       
       console.log("http://" + reply);
       res.redirect("http://" + reply);
+
+      client.get("counter:" + shortLink, function (err, reply) {
+        if (reply === null) {
+          console.log("first");
+          client.set('counter:' + shortLink, 1);
+          client.zadd('counter', 1, shortLink);
+        }
+        else {
+          console.log("second");
+          client.zincrby('counter', 1, shortLink);
+
+        }
+      });
     }
   });
   console.log(req.params.id);
-
-
 });
 
+//https://ricochen.wordpress.com/2012/02/28/example-sorted-set-functions-with-node-js-redis/
+//used code to convert to javascript object to respond
+app.post("/getTopList", function (req, res) {
+  client.zrevrange('counter', 0, -1, function (err, reply) {
+    var lists =_.groupBy(reply, function(a,b) {
+      return b;
+      // return Math.floor(b/2);
+    });
+    res.json(JSON.stringify(lists));
+    console.log(lists);
+    //console.log(_.toArray(lists));
+  }); 
+
+});
 app.post('/link', function (req, res) {
 
   var temp = req.body.link;

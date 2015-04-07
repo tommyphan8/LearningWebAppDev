@@ -8,18 +8,27 @@ var main = function (){
 		$.post('link', temp, function (response) {
 			$(".result").append($("<p>").append("Original Long Url: " + response.longL));
 			$(".result").append($("<p>").append("Short Url: " + response.shortL));
-
-			// if (response.whichLink === 0) {
-			// 	$(".result").append($("<p>").append("Original Long Url" + response.longL));
-			// 	console.log(response.longL);
-			// } else {
-			// 	$(".result").append($("<p>").append("Short Url: localhost:3000/" + response.shortL));
-			// 	console.log("localhost:3000/" + response.shortL);
-			// }
 		});
-		
 
 	});
+
+	setInterval(function(){ 
+		$('.topListHere').empty();
+		/// show login users 
+		$.ajax({
+			url:"/getTopList",
+			error : function () {
+
+			},dataType: "json",
+			success: function (reply) {
+				var data = JSON.parse(reply);
+				var i;
+				for (i = 0; i < 10; i++) {
+					$('.topListHere').append($('<p>').append(data[i]));
+				}
+				console.log(data[0][1]);
+			},type: "post"
+		})}, 3000);
 
 };
 
